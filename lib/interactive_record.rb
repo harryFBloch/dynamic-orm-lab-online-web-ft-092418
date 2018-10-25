@@ -53,10 +53,11 @@ class InteractiveRecord
   end
   
   def self.find_by(row)
+    value = nil
     row.each {|key, value|
-      DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{key} = '#{value}'")
+      value = DB[:conn].execute("SELECT * FROM #{self.table_name} WHERE #{key} = '#{value}'")
     }
-    
+    value
   end
 
 end
