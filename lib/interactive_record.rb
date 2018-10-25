@@ -53,7 +53,7 @@ class InteractiveRecord
   end
   
   def self.find_by(row)
-    binding.pry
+    DB[:conn].execute("SELECT * FROM ? WHERE ? = ?",self.table_name, )
   end
 
 end
